@@ -62,6 +62,7 @@ namespace Japanese_Symbols
             resetLbl.Visible = false;
             warnLbl.Visible = false;
             correctLbl.Visible = false;
+            difficultyLbl.Text = "Difficulty: " + difficulty;
             answer = "";
             question = "";
 
@@ -75,9 +76,30 @@ namespace Japanese_Symbols
         public void recordAnswer(int answer)
         {
             if (answers.Count == 16)
-                {
+            {
                 answers.RemoveAt(0);
                 answers.Add(answer);
+                Console.WriteLine("Answer is: "+ answer);
+
+                int averageScore = 0;
+                for (int i = 0; i < answers.Count; i++)
+                {
+                    averageScore += answers[i];
+                    if (averageScore > 12)
+                    {
+                        Console.WriteLine("Answers before being wiped" + answers);
+                        difficulty++;
+                        answers.Clear();
+                        Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
+                        Console.WriteLine("Answers after being wiped: " + answers); //checking that it's only increasing on the correct notations
+                    }
+                    else
+                    {
+                        //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
+                        answers.RemoveRange(0, 4);
+                        Console.WriteLine(answers); //checking they are being deleted properly
+                    }
+                }
             }
             else
             {
@@ -123,6 +145,12 @@ namespace Japanese_Symbols
 
         private void contButton_Click(object sender, EventArgs e)
         {
+            reset();
+        }
+
+        private void resetDiffButton_Click(object sender, EventArgs e)
+        {
+            difficulty = 0;
             reset();
         }
     }

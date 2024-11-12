@@ -38,6 +38,8 @@ namespace Japanese_Symbols
             this.warnLbl = new System.Windows.Forms.Label();
             this.resetLbl = new System.Windows.Forms.Label();
             this.answerLbl = new System.Windows.Forms.Label();
+            this.difficultyLbl = new System.Windows.Forms.Label();
+            this.resetDiffButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // questionLbl
@@ -72,7 +74,7 @@ namespace Japanese_Symbols
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(115, 23);
             this.resetButton.TabIndex = 3;
-            this.resetButton.Text = "Reset";
+            this.resetButton.Text = "New Question";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
@@ -125,9 +127,30 @@ namespace Japanese_Symbols
             this.answerLbl.TabIndex = 8;
             this.answerLbl.Text = "label1";
             // 
+            // difficultyLbl
+            // 
+            this.difficultyLbl.AutoSize = true;
+            this.difficultyLbl.Location = new System.Drawing.Point(646, 175);
+            this.difficultyLbl.Name = "difficultyLbl";
+            this.difficultyLbl.Size = new System.Drawing.Size(44, 16);
+            this.difficultyLbl.TabIndex = 9;
+            this.difficultyLbl.Text = "label1";
+            // 
+            // resetDiffButton
+            // 
+            this.resetDiffButton.Location = new System.Drawing.Point(628, 213);
+            this.resetDiffButton.Name = "resetDiffButton";
+            this.resetDiffButton.Size = new System.Drawing.Size(75, 23);
+            this.resetDiffButton.TabIndex = 10;
+            this.resetDiffButton.Text = "Reset";
+            this.resetDiffButton.UseVisualStyleBackColor = true;
+            this.resetDiffButton.Click += new System.EventHandler(this.resetDiffButton_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(911, 509);
+            this.Controls.Add(this.resetDiffButton);
+            this.Controls.Add(this.difficultyLbl);
             this.Controls.Add(this.answerLbl);
             this.Controls.Add(this.resetLbl);
             this.Controls.Add(this.warnLbl);
@@ -154,6 +177,8 @@ namespace Japanese_Symbols
         private System.Windows.Forms.Label warnLbl;
         private System.Windows.Forms.Label resetLbl;
         private System.Windows.Forms.Label answerLbl;
+        private System.Windows.Forms.Label difficultyLbl;
+        private System.Windows.Forms.Button resetDiffButton;
     }
 }
 
