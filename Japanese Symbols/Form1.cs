@@ -18,7 +18,7 @@ namespace Japanese_Symbols
         //list that will record the last 16 answers as 1 or 0; 1 being correct and 0 being incorrect. This will be used to interpret how well the student is doing and whether they can go up in difficulty or not.
         //chose to make it a list for ease of removing the first item as this is the most common manipulation that will happen to it
         //could make it an array however the way to remove the first item in an array requires making new arrays everytime and is thus a heavy burden to the program
-        List<int> answers;
+        List<int> answers = new List<int> { };
 
         //made public for this class as more than one function needs these variables visible
         String answer = "";
