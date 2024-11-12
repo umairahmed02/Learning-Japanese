@@ -74,13 +74,21 @@ namespace Japanese_Symbols
 
         public void recordAnswer(int answer)
         {
-            if(answers.Count == 16)
+            try
             {
-                answers.RemoveAt(0);
-                answers.Add(answer);
+                if (answers.Count == 16)
+                {
+                    answers.RemoveAt(0);
+                    answers.Add(answer);
+                }
+                else
+                {
+                    answers.Add(answer);
+                }
             }
-            else
+            catch(NullReferenceException e)
             {
+                Console.WriteLine(e.Message);
                 answers.Add(answer);
             }
         }
@@ -96,6 +104,7 @@ namespace Japanese_Symbols
             {
                 showContinue();
                 correctLbl.Visible = true;
+                recordAnswer(1);
                 
             }
             else if(answerTxtBox.Text != answer && retry == 1)
@@ -111,6 +120,7 @@ namespace Japanese_Symbols
                 answerLbl.Visible = true;
                 warnLbl.Visible = false;
                 answerLbl.Text = "Correct answer is:" + answer;
+                recordAnswer(0);
             }
         }
 
