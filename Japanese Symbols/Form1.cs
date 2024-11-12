@@ -75,11 +75,11 @@ namespace Japanese_Symbols
 
         public void recordAnswer(int answer)
         {
+            Console.WriteLine("Answer is: " + answer);
             if (answers.Count == 16)
             {
                 answers.RemoveAt(0);
                 answers.Add(answer);
-                Console.WriteLine("Answer is: "+ answer);
 
                 int averageScore = 0;
                 for (int i = 0; i < answers.Count; i++)
@@ -87,11 +87,11 @@ namespace Japanese_Symbols
                     averageScore += answers[i];
                     if (averageScore > 12)
                     {
-                        Console.WriteLine("Answers before being wiped" + answers);
+                        Console.WriteLine("Answers before being wiped" + answers.ToString());
                         difficulty++;
                         answers.Clear();
                         Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
-                        Console.WriteLine("Answers after being wiped: " + answers); //checking that it's only increasing on the correct notations
+                        Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
                     }
                     else
                     {
