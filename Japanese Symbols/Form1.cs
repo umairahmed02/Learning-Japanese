@@ -13,11 +13,18 @@ namespace Japanese_Symbols
     public partial class Form1 : Form
     {
         int retry;
-        int difficulty = 1;
+        int difficulty = 0;
+
+        //list that will record the last 16 answers as 1 or 0; 1 being correct and 0 being incorrect. This will be used to interpret how well the student is doing and whether they can go up in difficulty or not.
+        int[] answers;
+
+        //made public for this class as more than one function needs these variables visible
         String answer = "";
         String question = "";
-        String[] katakana = {"ア", "イ", "ウ", "エ", "オ", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ヤ", "ユ", "ヨ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ン", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ"};
-        String[] katakanaPhonetics = {"a", "i", "u", "e", "o", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ya", "yu", "yo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "n", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"};
+
+        //although a dictonary would be best in this use-case i will be adding hiragana later and as there is no way to have a dictionary with 2 keys to a value it would make it take more space
+        String[] katakana = {"ア", "イ", "ウ", "エ", "オ", "ン", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ヤ", "ユ", "ヨ", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ"};
+        String[] phonetics = {"a", "i", "u", "e", "o", "n", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "ya", "yu", "yo", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"};
         Random rand = new Random();
 
         public Form1()
@@ -27,7 +34,7 @@ namespace Japanese_Symbols
         }
         public void randomCharacterGenerator(String[] character, String[]romanji)
         {
-            int position = rand.Next(katakana.Length);
+            int position = rand.Next(6 + difficulty * 5);
 
             question += character[position];
             answer += romanji[position];
@@ -47,9 +54,9 @@ namespace Japanese_Symbols
             answer = "";
             question = "";
 
-            for(int i = 0; i < difficulty; i++)
+            for(int i = 0; i < 1; i++)
             {
-                randomCharacterGenerator(katakana, katakanaPhonetics);
+                randomCharacterGenerator(katakana, phonetics);
             }
             questionLbl.Text = question;
         }
