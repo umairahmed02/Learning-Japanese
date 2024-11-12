@@ -74,21 +74,13 @@ namespace Japanese_Symbols
 
         public void recordAnswer(int answer)
         {
-            try
-            {
-                if (answers.Count == 16)
+            if (answers.Count == 16)
                 {
-                    answers.RemoveAt(0);
-                    answers.Add(answer);
-                }
-                else
-                {
-                    answers.Add(answer);
-                }
+                answers.RemoveAt(0);
+                answers.Add(answer);
             }
-            catch(NullReferenceException e)
+            else
             {
-                Console.WriteLine(e.Message);
                 answers.Add(answer);
             }
         }
@@ -100,14 +92,14 @@ namespace Japanese_Symbols
 
         private void answerButton_Click(object sender, EventArgs e)
         {
-            if(answerTxtBox.Text == answer)
+            if (answerTxtBox.Text == answer)
             {
                 showContinue();
                 correctLbl.Visible = true;
                 recordAnswer(1);
-                
+
             }
-            else if(answerTxtBox.Text != answer && retry == 1)
+            else if (answerTxtBox.Text != answer && retry == 1)
             {
                 warnLbl.Visible = true;
                 answerTxtBox.Text = "";
