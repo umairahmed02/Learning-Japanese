@@ -16,7 +16,9 @@ namespace Japanese_Symbols
         int difficulty = 0;
 
         //list that will record the last 16 answers as 1 or 0; 1 being correct and 0 being incorrect. This will be used to interpret how well the student is doing and whether they can go up in difficulty or not.
-        int[] answers;
+        //chose to make it a list for ease of removing the first item as this is the most common manipulation that will happen to it
+        //could make it an array however the way to remove the first item in an array requires making new arrays everytime and is thus a heavy burden to the program
+        List<int> answers;
 
         //made public for this class as more than one function needs these variables visible
         String answer = "";
@@ -40,6 +42,15 @@ namespace Japanese_Symbols
             answer += romanji[position];
         }
 
+        public void showContinue()
+        {
+            answerButton.Enabled = false;
+            resetButton.Enabled = false;
+            contButton.Enabled = true;
+            contButton.Visible = true;
+            answerTxtBox.Text = "";
+        }
+
         public void reset()
         {
             retry = 1;
@@ -61,6 +72,19 @@ namespace Japanese_Symbols
             questionLbl.Text = question;
         }
 
+        public void recordAnswer(int answer)
+        {
+            if(answers.Count == 16)
+            {
+                answers.RemoveAt(0);
+                answers.Add(answer);
+            }
+            else
+            {
+                answers.Add(answer);
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             reset();
@@ -70,11 +94,9 @@ namespace Japanese_Symbols
         {
             if(answerTxtBox.Text == answer)
             {
-                warnLbl.Visible = false;
+                showContinue();
                 correctLbl.Visible = true;
-                contButton.Visible = true;
-                contButton.Enabled = true;
-                answerTxtBox.Text = "";
+                
             }
             else if(answerTxtBox.Text != answer && retry == 1)
             {
@@ -84,11 +106,8 @@ namespace Japanese_Symbols
             }
             else
             {
+                showContinue();
                 resetLbl.Visible = true;
-                answerButton.Enabled = false;
-                resetButton.Enabled = false;
-                contButton.Enabled = true;
-                contButton.Visible = true;
                 answerLbl.Visible = true;
                 warnLbl.Visible = false;
                 answerLbl.Text = "Correct answer is:" + answer;
