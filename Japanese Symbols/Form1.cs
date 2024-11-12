@@ -13,13 +13,22 @@ namespace Japanese_Symbols
     public partial class Form1 : Form
     {
         int retry;
-        int difficulty = 1;
+        int difficulty = 0;
+
+        //list that will record the last 16 answers as 1 or 0; 1 being correct and 0 being incorrect. This will be used to interpret how well the student is doing and whether they can go up in difficulty or not.
+        //chose to make it a list for ease of removing the first item as this is the most common manipulation that will happen to it
+        //could make it an array however the way to remove the first item in an array requires making new arrays everytime and is thus a heavy burden to the program
+        List<int> answers = new List<int> { };
+
+        //made public for this class as more than one function needs these variables visible
         String answer = "";
         String question = "";
-        String[] katakana = {"ア", "イ", "ウ", "エ", "オ", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ヤ", "ユ", "ヨ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ン", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ"};
-        String[] katakanaPhonetics = {"a", "i", "u", "e", "o", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ya", "yu", "yo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "n", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"};
-        Random rand = new Random();
 
+        //although a dictonary would be best in this use-case i will be adding hiragana later and as there is no way to have a dictionary with 2 keys to a value it would make it take more space
+        String[] katakana = {"ア", "イ", "ウ", "エ", "オ", "ン", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ヤ", "ユ", "ヨ", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ"};
+        String[] phonetics = {"a", "i", "u", "e", "o", "n", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "ya", "yu", "yo", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"};
+        Random rand = new Random();
+        
         public Form1()
         {
             InitializeComponent();
@@ -27,10 +36,19 @@ namespace Japanese_Symbols
         }
         public void randomCharacterGenerator(String[] character, String[]romanji)
         {
-            int position = rand.Next(katakana.Length);
+            int position = rand.Next(6 + difficulty * 5);
 
             question += character[position];
             answer += romanji[position];
+        }
+
+        public void showContinue()
+        {
+            answerButton.Enabled = false;
+            resetButton.Enabled = false;
+            contButton.Enabled = true;
+            contButton.Visible = true;
+            answerTxtBox.Text = "";
         }
 
         public void reset()
@@ -44,14 +62,49 @@ namespace Japanese_Symbols
             resetLbl.Visible = false;
             warnLbl.Visible = false;
             correctLbl.Visible = false;
+            difficultyLbl.Text = "Difficulty: " + difficulty;
             answer = "";
             question = "";
 
-            for(int i = 0; i < difficulty; i++)
+            for(int i = 0; i < 1; i++)
             {
-                randomCharacterGenerator(katakana, katakanaPhonetics);
+                randomCharacterGenerator(katakana, phonetics);
             }
             questionLbl.Text = question;
+        }
+
+        public void recordAnswer(int answer)
+        {
+            Console.WriteLine("Answer is: " + answer);
+            if (answers.Count == 16)
+            {
+                answers.RemoveAt(0);
+                answers.Add(answer);
+
+                int averageScore = 0;
+                for (int i = 0; i < answers.Count; i++)
+                {
+                    averageScore += answers[i];
+                    if (averageScore > 12)
+                    {
+                        Console.WriteLine("Answers before being wiped" + answers.ToString());
+                        difficulty++;
+                        answers.Clear();
+                        Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
+                        Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
+                    }
+                    else
+                    {
+                        //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
+                        answers.RemoveRange(0, 4);
+                        Console.WriteLine(answers); //checking they are being deleted properly
+                    }
+                }
+            }
+            else
+            {
+                answers.Add(answer);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -61,15 +114,14 @@ namespace Japanese_Symbols
 
         private void answerButton_Click(object sender, EventArgs e)
         {
-            if(answerTxtBox.Text == answer)
+            if (answerTxtBox.Text == answer)
             {
-                warnLbl.Visible = false;
+                showContinue();
                 correctLbl.Visible = true;
-                contButton.Visible = true;
-                contButton.Enabled = true;
-                answerTxtBox.Text = "";
+                recordAnswer(1);
+
             }
-            else if(answerTxtBox.Text != answer && retry == 1)
+            else if (answerTxtBox.Text != answer && retry == 1)
             {
                 warnLbl.Visible = true;
                 answerTxtBox.Text = "";
@@ -77,14 +129,12 @@ namespace Japanese_Symbols
             }
             else
             {
+                showContinue();
                 resetLbl.Visible = true;
-                answerButton.Enabled = false;
-                resetButton.Enabled = false;
-                contButton.Enabled = true;
-                contButton.Visible = true;
                 answerLbl.Visible = true;
                 warnLbl.Visible = false;
                 answerLbl.Text = "Correct answer is:" + answer;
+                recordAnswer(0);
             }
         }
 
@@ -95,6 +145,12 @@ namespace Japanese_Symbols
 
         private void contButton_Click(object sender, EventArgs e)
         {
+            reset();
+        }
+
+        private void resetDiffButton_Click(object sender, EventArgs e)
+        {
+            difficulty = 0;
             reset();
         }
     }
