@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Japanese Symbols", "Japanese Symbols\Japanese Symbols.csproj", "{80FF6CDB-5D83-4FF0-BED2-81DE3486E79A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80FF6CDB-5D83-4FF0-BED2-81DE3486E79A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80FF6CDB-5D83-4FF0-BED2-81DE3486E79A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80FF6CDB-5D83-4FF0-BED2-81DE3486E79A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80FF6CDB-5D83-4FF0-BED2-81DE3486E79A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0047D65-6FF9-46DF-9D02-76A91FB42681}
+	EndGlobalSection
+EndGlobal
