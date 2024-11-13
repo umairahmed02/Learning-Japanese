@@ -48,6 +48,7 @@ namespace Japanese_Symbols
             resetButton.Enabled = false;
             contButton.Enabled = true;
             contButton.Visible = true;
+            warnLbl.Visible = false;
             answerTxtBox.Text = "";
         }
 
@@ -75,35 +76,41 @@ namespace Japanese_Symbols
 
         public void recordAnswer(int answer)
         {
-            Console.WriteLine("Answer is: " + answer);
-            if (answers.Count == 16)
+            answers.Add(answer);
+            Console.WriteLine("Answer is: " + answer); //more debugging stuff
+
+            for(int i = 0; i < answers.Count; i++) //even more debugging stuff, but i think its done for now
+            {
+                Console.WriteLine(answers[i]);
+            }
+
+            if (answers.Count > 16)
             {
                 answers.RemoveAt(0);
-                answers.Add(answer);
+            }
 
+            if (answers.Count == 16)
+            {
                 int averageScore = 0;
                 for (int i = 0; i < answers.Count; i++)
                 {
                     averageScore += answers[i];
-                    if (averageScore > 12)
-                    {
-                        Console.WriteLine("Answers before being wiped" + answers.ToString());
-                        difficulty++;
-                        answers.Clear();
-                        Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
-                        Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
-                    }
-                    else
-                    {
-                        //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
-                        answers.RemoveRange(0, 4);
-                        Console.WriteLine(answers); //checking they are being deleted properly
-                    }
                 }
-            }
-            else
-            {
-                answers.Add(answer);
+
+                if (averageScore > 12)
+                {
+                    Console.WriteLine("Answers before being wiped" + answers.ToString());
+                    difficulty++;
+                    answers.Clear();
+                    Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
+                    Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
+                }
+                else
+                {
+                    //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
+                    answers.RemoveRange(0, 4);
+                    Console.WriteLine(answers); //checking they are being deleted properly
+                }
             }
         }
 
@@ -132,7 +139,6 @@ namespace Japanese_Symbols
                 showContinue();
                 resetLbl.Visible = true;
                 answerLbl.Visible = true;
-                warnLbl.Visible = false;
                 answerLbl.Text = "Correct answer is:" + answer;
                 recordAnswer(0);
             }
