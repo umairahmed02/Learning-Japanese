@@ -45,9 +45,10 @@ namespace Japanese_Symbols
             // questionLbl
             // 
             this.questionLbl.AutoSize = true;
-            this.questionLbl.Location = new System.Drawing.Point(437, 121);
+            this.questionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.questionLbl.Location = new System.Drawing.Point(415, 111);
             this.questionLbl.Name = "questionLbl";
-            this.questionLbl.Size = new System.Drawing.Size(44, 16);
+            this.questionLbl.Size = new System.Drawing.Size(95, 36);
             this.questionLbl.TabIndex = 0;
             this.questionLbl.Text = "label1";
             // 
@@ -121,7 +122,7 @@ namespace Japanese_Symbols
             // answerLbl
             // 
             this.answerLbl.AutoSize = true;
-            this.answerLbl.Location = new System.Drawing.Point(393, 147);
+            this.answerLbl.Location = new System.Drawing.Point(433, 156);
             this.answerLbl.Name = "answerLbl";
             this.answerLbl.Size = new System.Drawing.Size(44, 16);
             this.answerLbl.TabIndex = 8;
