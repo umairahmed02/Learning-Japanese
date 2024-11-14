@@ -17,7 +17,12 @@ namespace Japanese_Symbols
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void hiraganaButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void katakanaButton_Click(object sender, EventArgs e)
         {
 
         }

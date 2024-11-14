@@ -60,7 +60,7 @@
             this.hiraganaButton.TabIndex = 2;
             this.hiraganaButton.Text = "Hiragana";
             this.hiraganaButton.UseVisualStyleBackColor = true;
-            this.hiraganaButton.Click += new System.EventHandler(this.button1_Click);
+            this.hiraganaButton.Click += new System.EventHandler(this.hiraganaButton_Click);
             // 
             // katakanaButton
             // 
@@ -70,6 +70,7 @@
             this.katakanaButton.TabIndex = 3;
             this.katakanaButton.Text = "Katakana";
             this.katakanaButton.UseVisualStyleBackColor = true;
+            this.katakanaButton.Click += new System.EventHandler(this.katakanaButton_Click);
             // 
             // Form2
             // 
