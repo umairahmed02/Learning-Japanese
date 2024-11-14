@@ -46,7 +46,7 @@ namespace Japanese_Symbols
             // 
             this.questionLbl.AutoSize = true;
             this.questionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.questionLbl.Location = new System.Drawing.Point(415, 111);
+            this.questionLbl.Location = new System.Drawing.Point(439, 162);
             this.questionLbl.Name = "questionLbl";
             this.questionLbl.Size = new System.Drawing.Size(95, 36);
             this.questionLbl.TabIndex = 0;
@@ -54,14 +54,14 @@ namespace Japanese_Symbols
             // 
             // answerTxtBox
             // 
-            this.answerTxtBox.Location = new System.Drawing.Point(336, 175);
+            this.answerTxtBox.Location = new System.Drawing.Point(337, 227);
             this.answerTxtBox.Name = "answerTxtBox";
             this.answerTxtBox.Size = new System.Drawing.Size(236, 22);
             this.answerTxtBox.TabIndex = 1;
             // 
             // answerButton
             // 
-            this.answerButton.Location = new System.Drawing.Point(336, 213);
+            this.answerButton.Location = new System.Drawing.Point(337, 265);
             this.answerButton.Name = "answerButton";
             this.answerButton.Size = new System.Drawing.Size(115, 23);
             this.answerButton.TabIndex = 2;
@@ -71,7 +71,7 @@ namespace Japanese_Symbols
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(457, 213);
+            this.resetButton.Location = new System.Drawing.Point(458, 265);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(115, 23);
             this.resetButton.TabIndex = 3;
@@ -83,7 +83,7 @@ namespace Japanese_Symbols
             // 
             this.correctLbl.AutoSize = true;
             this.correctLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.correctLbl.Location = new System.Drawing.Point(258, 278);
+            this.correctLbl.Location = new System.Drawing.Point(283, 331);
             this.correctLbl.Name = "correctLbl";
             this.correctLbl.Size = new System.Drawing.Size(433, 16);
             this.correctLbl.TabIndex = 4;
@@ -91,7 +91,7 @@ namespace Japanese_Symbols
             // 
             // contButton
             // 
-            this.contButton.Location = new System.Drawing.Point(405, 242);
+            this.contButton.Location = new System.Drawing.Point(406, 294);
             this.contButton.Name = "contButton";
             this.contButton.Size = new System.Drawing.Size(96, 23);
             this.contButton.TabIndex = 5;
@@ -103,7 +103,7 @@ namespace Japanese_Symbols
             // 
             this.warnLbl.AutoSize = true;
             this.warnLbl.ForeColor = System.Drawing.Color.Red;
-            this.warnLbl.Location = new System.Drawing.Point(258, 278);
+            this.warnLbl.Location = new System.Drawing.Point(283, 331);
             this.warnLbl.Name = "warnLbl";
             this.warnLbl.Size = new System.Drawing.Size(467, 16);
             this.warnLbl.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace Japanese_Symbols
             // resetLbl
             // 
             this.resetLbl.AutoSize = true;
-            this.resetLbl.Location = new System.Drawing.Point(185, 278);
+            this.resetLbl.Location = new System.Drawing.Point(210, 331);
             this.resetLbl.Name = "resetLbl";
             this.resetLbl.Size = new System.Drawing.Size(670, 16);
             this.resetLbl.TabIndex = 7;
@@ -122,7 +122,7 @@ namespace Japanese_Symbols
             // answerLbl
             // 
             this.answerLbl.AutoSize = true;
-            this.answerLbl.Location = new System.Drawing.Point(433, 156);
+            this.answerLbl.Location = new System.Drawing.Point(408, 208);
             this.answerLbl.Name = "answerLbl";
             this.answerLbl.Size = new System.Drawing.Size(44, 16);
             this.answerLbl.TabIndex = 8;
@@ -131,7 +131,7 @@ namespace Japanese_Symbols
             // difficultyLbl
             // 
             this.difficultyLbl.AutoSize = true;
-            this.difficultyLbl.Location = new System.Drawing.Point(646, 175);
+            this.difficultyLbl.Location = new System.Drawing.Point(624, 227);
             this.difficultyLbl.Name = "difficultyLbl";
             this.difficultyLbl.Size = new System.Drawing.Size(44, 16);
             this.difficultyLbl.TabIndex = 9;
@@ -139,7 +139,7 @@ namespace Japanese_Symbols
             // 
             // resetDiffButton
             // 
-            this.resetDiffButton.Location = new System.Drawing.Point(628, 213);
+            this.resetDiffButton.Location = new System.Drawing.Point(627, 265);
             this.resetDiffButton.Name = "resetDiffButton";
             this.resetDiffButton.Size = new System.Drawing.Size(75, 23);
             this.resetDiffButton.TabIndex = 10;
