@@ -157,6 +157,7 @@ namespace Japanese_Symbols
         private void resetDiffButton_Click(object sender, EventArgs e)
         {
             difficulty = 0;
+            answers.Clear();
             reset();
         }
     }
