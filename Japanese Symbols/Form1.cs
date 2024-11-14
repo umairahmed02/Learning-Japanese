@@ -57,7 +57,7 @@ namespace Japanese_Symbols
             {
                 position = rand.Next(6 + ((difficulty -1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
             }
-            Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
+            //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
 
             question += characterList[language, position];
             answer += romanji[position];
@@ -98,7 +98,7 @@ namespace Japanese_Symbols
         public void recordAnswer(int answer)
         {
             answers.Add(answer);
-            Console.WriteLine("Answer is: " + answer); //more debugging stuff
+            //Console.WriteLine("Answer is: " + answer); //more debugging stuff
 
             for(int i = 0; i < answers.Count; i++) //even more debugging stuff, but i think its done for now
             {
@@ -120,11 +120,11 @@ namespace Japanese_Symbols
 
                 if (averageScore > 12)
                 {
-                    Console.WriteLine("Answers before being wiped" + answers.ToString());
+                    //Console.WriteLine("Answers before being wiped" + answers.ToString());
                     difficulty++;
                     answers.Clear();
-                    Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
-                    Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
+                    //Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
+                    //Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
                 }
                 else
                 {
