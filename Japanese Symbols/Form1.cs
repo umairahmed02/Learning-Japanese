@@ -31,7 +31,7 @@ namespace Japanese_Symbols
         String[] romanji = {"a", "i", "u", "e", "o", "n", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "ya", "yu", "yo", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"};
         Random rand = new Random();
         
-        public Form1()
+        public Form1(int language)
         {
             InitializeComponent();
             reset();
