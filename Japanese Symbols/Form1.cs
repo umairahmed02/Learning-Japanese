@@ -44,7 +44,7 @@ namespace Japanese_Symbols
             reset();
             language = lang;
         }
-        public void randomCharacterGenerator(String[] character, String[]romanji)
+        public void randomCharacterGenerator(String[,] characterList, String[]romanji)
         {
             //this if else block basically makes it so that first you get a whole new set to learn
             //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
@@ -59,7 +59,7 @@ namespace Japanese_Symbols
             }
             Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
 
-            question += character[position];
+            question += characterList[language, position];
             answer += romanji[position];
         }
 
@@ -90,7 +90,7 @@ namespace Japanese_Symbols
 
             for(int i = 0; i < 1; i++)
             {
-                randomCharacterGenerator(katakana, romanji);
+                randomCharacterGenerator(characters, romanji);
             }
             questionLbl.Text = question;
         }
