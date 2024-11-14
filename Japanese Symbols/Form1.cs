@@ -14,6 +14,7 @@ namespace Japanese_Symbols
     {
         int retry;
         int difficulty = 0;
+        int position;
 
         //list that will record the last 16 answers as 1 or 0; 1 being correct and 0 being incorrect. This will be used to interpret how well the student is doing and whether they can go up in difficulty or not.
         //chose to make it a list for ease of removing the first item as this is the most common manipulation that will happen to it
@@ -36,7 +37,18 @@ namespace Japanese_Symbols
         }
         public void randomCharacterGenerator(String[] character, String[]romanji)
         {
-            int position = rand.Next(6 + difficulty * 5);
+            //this if else block basically makes it so that first you get a whole new set to learn
+            //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
+            //almost certain the math here is wrong, jesus take the wheel
+            if (difficulty % 2 == 0)
+            {
+                position = rand.Next(6 + (difficulty / 2) * 5);
+            }
+            else
+            {
+                position = rand.Next(6 + ((difficulty / 2) - 1) * 5, 6 + (difficulty / 2) * 5);
+            }
+            Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
 
             question += character[position];
             answer += romanji[position];
