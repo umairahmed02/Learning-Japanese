@@ -28,12 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.wlcmLbl = new System.Windows.Forms.Label();
+            this.jpnWlcmLbl = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // wlcmLbl
+            // 
+            this.wlcmLbl.AutoSize = true;
+            this.wlcmLbl.Location = new System.Drawing.Point(210, 124);
+            this.wlcmLbl.Name = "wlcmLbl";
+            this.wlcmLbl.Size = new System.Drawing.Size(381, 16);
+            this.wlcmLbl.TabIndex = 0;
+            this.wlcmLbl.Text = "Welcome to Umair\'s Japanese Character Learning Application!";
+            // 
+            // jpnWlcmLbl
+            // 
+            this.jpnWlcmLbl.AutoSize = true;
+            this.jpnWlcmLbl.Location = new System.Drawing.Point(246, 156);
+            this.jpnWlcmLbl.Name = "jpnWlcmLbl";
+            this.jpnWlcmLbl.Size = new System.Drawing.Size(308, 16);
+            this.jpnWlcmLbl.TabIndex = 1;
+            this.jpnWlcmLbl.Text = "ウマイヤの日本語文字学習アプリケーションへようこそ";
+            // 
+            // Form2
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.jpnWlcmLbl);
+            this.Controls.Add(this.wlcmLbl);
+            this.Name = "Form2";
             this.Text = "Form2";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label wlcmLbl;
+        private System.Windows.Forms.Label jpnWlcmLbl;
     }
 }
