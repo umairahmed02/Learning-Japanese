@@ -46,7 +46,7 @@ namespace Japanese_Symbols
             }
             else
             {
-                position = rand.Next(6 + ((difficulty / 2) - 1) * 5, 6 + (difficulty / 2) * 5);
+                position = rand.Next(6 + ((difficulty -1) / 2) * 5, 6 + (difficulty + 1) * 5);
             }
             Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
 
