@@ -48,7 +48,7 @@ namespace Japanese_Symbols
         {
             //this if else block basically makes it so that first you get a whole new set to learn
             //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
-            //almost certain the math here is wrong, jesus take the wheel
+            //almost certain the math here is wrong, jesus take the wheel (it was)
             if (difficulty % 2 == 0)
             {
                 position = rand.Next(6 + (difficulty / 2) * 5);
