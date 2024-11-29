@@ -38,5 +38,11 @@ namespace Japanese_Symbols
             this.Hide();
             this.Close();
         }
+
+        private void mixedButton_Click(object sender, EventArgs e)
+        {
+            language = 2;
+            startup(language);
+        }
     }
 }
