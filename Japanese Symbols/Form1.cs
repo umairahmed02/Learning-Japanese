@@ -91,8 +91,8 @@ namespace Japanese_Symbols
             //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
 
             //randomizing which array it takes from every time... i hope
-            language = rand.Next(1);
-            Console.WriteLine(language);
+            language = rand.Next(2);
+            Console.WriteLine("Language is: " + language);
             question += characterList[language, position];
             answer += romanji[position];
         }
