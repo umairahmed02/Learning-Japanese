@@ -32,6 +32,7 @@
             this.jpnWlcmLbl = new System.Windows.Forms.Label();
             this.hiraganaButton = new System.Windows.Forms.Button();
             this.katakanaButton = new System.Windows.Forms.Button();
+            this.mixedButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // wlcmLbl
@@ -54,7 +55,7 @@
             // 
             // hiraganaButton
             // 
-            this.hiraganaButton.Location = new System.Drawing.Point(249, 259);
+            this.hiraganaButton.Location = new System.Drawing.Point(151, 259);
             this.hiraganaButton.Name = "hiraganaButton";
             this.hiraganaButton.Size = new System.Drawing.Size(140, 23);
             this.hiraganaButton.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // katakanaButton
             // 
-            this.katakanaButton.Location = new System.Drawing.Point(414, 259);
+            this.katakanaButton.Location = new System.Drawing.Point(324, 259);
             this.katakanaButton.Name = "katakanaButton";
             this.katakanaButton.Size = new System.Drawing.Size(140, 23);
             this.katakanaButton.TabIndex = 3;
@@ -72,11 +73,22 @@
             this.katakanaButton.UseVisualStyleBackColor = true;
             this.katakanaButton.Click += new System.EventHandler(this.katakanaButton_Click);
             // 
+            // mixedButton
+            // 
+            this.mixedButton.Location = new System.Drawing.Point(504, 259);
+            this.mixedButton.Name = "mixedButton";
+            this.mixedButton.Size = new System.Drawing.Size(140, 23);
+            this.mixedButton.TabIndex = 4;
+            this.mixedButton.Text = "Mixed";
+            this.mixedButton.UseVisualStyleBackColor = true;
+            this.mixedButton.Click += new System.EventHandler(this.mixedButton_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mixedButton);
             this.Controls.Add(this.katakanaButton);
             this.Controls.Add(this.hiraganaButton);
             this.Controls.Add(this.jpnWlcmLbl);
@@ -94,5 +106,6 @@
         private System.Windows.Forms.Label jpnWlcmLbl;
         private System.Windows.Forms.Button hiraganaButton;
         private System.Windows.Forms.Button katakanaButton;
+        private System.Windows.Forms.Button mixedButton;
     }
 }
