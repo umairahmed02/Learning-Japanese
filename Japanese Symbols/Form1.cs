@@ -43,12 +43,13 @@ namespace Japanese_Symbols
         public Form1(int lang, int dif)
         {
             InitializeComponent();
-            reset();
 
             //done this way because baseDifficulty will always stay constant and difficulty will be written over
             //this way the base difficulty can always be reset to and not just being reset to 0 all the time
             baseDifficulty = dif;
             difficulty = baseDifficulty;
+
+            reset();
 
             //lang will only ever be 1 or 0 if user has chosen katakana or hiragana
             //this means i can just set language to lang and its easy peasy
