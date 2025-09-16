@@ -30,6 +30,11 @@ namespace Japanese_Symbols
             language = 1;
             startup(language);
         }
+        private void mixedButton_Click(object sender, EventArgs e)
+        {
+            language = 2;
+            startup(language);
+        }
 
         private void startup(int language)
         {
@@ -37,12 +42,6 @@ namespace Japanese_Symbols
             form.ShowDialog();
             this.Hide();
             this.Close();
-        }
-
-        private void mixedButton_Click(object sender, EventArgs e)
-        {
-            language = 2;
-            startup(language);
         }
     }
 }
