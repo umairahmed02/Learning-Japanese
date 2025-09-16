@@ -17,6 +17,7 @@ namespace Japanese_Symbols
         public Form2()
         {
             InitializeComponent();
+            difficultyLabel.Text = "Difficulty: 0";
         }
 
         private void hiraganaButton_Click(object sender, EventArgs e)
@@ -34,6 +35,11 @@ namespace Japanese_Symbols
         {
             language = 2;
             startup(language);
+        }
+
+        private void difficultyTrackBar_Scroll(object sender, EventArgs e)
+        {
+            difficultyLabel.Text = "Difficulty: " + difficultyTrackBar.Value.ToString();
         }
 
         private void startup(int language)

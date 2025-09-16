@@ -33,6 +33,9 @@
             this.hiraganaButton = new System.Windows.Forms.Button();
             this.katakanaButton = new System.Windows.Forms.Button();
             this.mixedButton = new System.Windows.Forms.Button();
+            this.difficultyTrackBar = new System.Windows.Forms.TrackBar();
+            this.difficultyLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.difficultyTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // wlcmLbl
@@ -83,11 +86,31 @@
             this.mixedButton.UseVisualStyleBackColor = true;
             this.mixedButton.Click += new System.EventHandler(this.mixedButton_Click);
             // 
+            // difficultyTrackBar
+            // 
+            this.difficultyTrackBar.Location = new System.Drawing.Point(184, 357);
+            this.difficultyTrackBar.Maximum = 9;
+            this.difficultyTrackBar.Name = "difficultyTrackBar";
+            this.difficultyTrackBar.Size = new System.Drawing.Size(438, 56);
+            this.difficultyTrackBar.TabIndex = 5;
+            this.difficultyTrackBar.Scroll += new System.EventHandler(this.difficultyTrackBar_Scroll);
+            // 
+            // difficultyLabel
+            // 
+            this.difficultyLabel.AutoSize = true;
+            this.difficultyLabel.Location = new System.Drawing.Point(359, 316);
+            this.difficultyLabel.Name = "difficultyLabel";
+            this.difficultyLabel.Size = new System.Drawing.Size(62, 16);
+            this.difficultyLabel.TabIndex = 6;
+            this.difficultyLabel.Text = "Difficulty: ";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.difficultyLabel);
+            this.Controls.Add(this.difficultyTrackBar);
             this.Controls.Add(this.mixedButton);
             this.Controls.Add(this.katakanaButton);
             this.Controls.Add(this.hiraganaButton);
@@ -95,6 +118,7 @@
             this.Controls.Add(this.wlcmLbl);
             this.Name = "Form2";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.difficultyTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,5 +131,7 @@
         private System.Windows.Forms.Button hiraganaButton;
         private System.Windows.Forms.Button katakanaButton;
         private System.Windows.Forms.Button mixedButton;
+        private System.Windows.Forms.TrackBar difficultyTrackBar;
+        private System.Windows.Forms.Label difficultyLabel;
     }
 }
