@@ -15,6 +15,7 @@ namespace Japanese_Symbols
         int retry;
         int difficulty = 0;
         int position;
+        bool mixed = false;
 
         //list that will record the last 16 answers as 1 or 0; 1 being correct and 0 being incorrect. This will be used to interpret how well the student is doing and whether they can go up in difficulty or not.
         //chose to make it a list for ease of removing the first item as this is the most common manipulation that will happen to it
@@ -24,22 +25,42 @@ namespace Japanese_Symbols
         //made public for this class as more than one function needs these variables visible
         String answer = "";
         String question = "";
+        int language;
 
         //although a dictonary would be best in this use-case i will be adding hiragana later and as there is no way to have a dictionary with 2 keys to a value it would make it take more space
-        String[] katakana = {"ア", "イ", "ウ", "エ", "オ", "ン", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ヤ", "ユ", "ヨ", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ"};
-        String[] phonetics = {"a", "i", "u", "e", "o", "n", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "ya", "yu", "yo", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"};
+        //old arrays are just here for reference if i do a boo boo
+        //String[] hiragana = {"あ", "い", "う", "え", "お", "ん", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ", "た", "ち", "つ", "て", "と", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "ま", "み", "む", "め", "も", "ら", "り", "る", "れ", "ろ", "わ", "を", "や", "ゆ", "よ", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ"};
+        //String[] katakana = {"ア", "イ", "ウ", "エ", "オ", "ン", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ヤ", "ユ", "ヨ", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ"};
+        String[,] characters =
+        {
+            {"あ", "い", "う", "え", "お", "ん", "か", "き", "く", "け", "こ", "さ", "し", "す", "せ", "そ", "た", "ち", "つ", "て", "と", "な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "ま", "み", "む", "め", "も", "ら", "り", "る", "れ", "ろ", "わ", "を", "や", "ゆ", "よ", "が", "ぎ", "ぐ", "げ", "ご", "ざ", "じ", "ず", "ぜ", "ぞ", "だ", "ぢ", "づ", "で", "ど", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ"},
+            {"ア", "イ", "ウ", "エ", "オ", "ン", "カ", "キ", "ク", "ケ", "コ", "サ", "シ", "ス", "セ", "ソ", "タ", "チ", "ツ", "テ", "ト", "ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "マ", "ミ", "ム", "メ", "モ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ヤ", "ユ", "ヨ", "ガ", "ギ", "グ", "ゲ", "ゴ", "ザ", "ジ", "ズ", "ゼ", "ゾ", "ダ", "ヂ", "ヅ", "デ", "ド", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ"}
+        };
+        String[] romanji = {"a", "i", "u", "e", "o", "n", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "ya", "yu", "yo", "ga", "gi", "gu", "ge", "go", "za", "ji", "zu", "ze", "zo", "da", "ji", "zu", "de", "do", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po"};
         Random rand = new Random();
         
-        public Form1()
+        public Form1(int lang)
         {
             InitializeComponent();
             reset();
+
+            //lang will only ever be 1 or 0 if user has chosen katakana or hiragana
+            //this means i can just set language to lang and its easy peasy
+            //however i have added a new mixed option which is passed as lang = 2 where i'll need to change how it chooses between the two arrays in the 2d array
+            if(lang < 2)
+            {
+                language = lang;
+            }
+            else
+            {
+                mixed = true;
+            }
         }
-        public void randomCharacterGenerator(String[] character, String[]romanji)
+        public void randomCharacterGenerator(String[,] characterList, String[]romanji)
         {
             //this if else block basically makes it so that first you get a whole new set to learn
             //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
-            //almost certain the math here is wrong, jesus take the wheel
+            //almost certain the math here is wrong, jesus take the wheel (it was)
             if (difficulty % 2 == 0)
             {
                 position = rand.Next(6 + (difficulty / 2) * 5);
@@ -48,9 +69,31 @@ namespace Japanese_Symbols
             {
                 position = rand.Next(6 + ((difficulty -1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
             }
-            Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
+            //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
 
-            question += character[position];
+            question += characterList[language, position];
+            answer += romanji[position];
+        }
+
+        public void randomMixedGenerator(String[,] characterList, String[] romanji)
+        {
+            //this if else block basically makes it so that first you get a whole new set to learn
+            //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
+            //almost certain the math here is wrong, jesus take the wheel (it was)
+            if (difficulty % 2 == 0)
+            {
+                position = rand.Next(6 + (difficulty / 2) * 5);
+            }
+            else
+            {
+                position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
+            }
+            //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
+
+            //randomizing which array it takes from every time... i hope
+            language = rand.Next(2);
+            Console.WriteLine("Language is: " + language);
+            question += characterList[language, position];
             answer += romanji[position];
         }
 
@@ -79,17 +122,29 @@ namespace Japanese_Symbols
             answer = "";
             question = "";
 
-            for(int i = 0; i < 1; i++)
+            if (mixed)
             {
-                randomCharacterGenerator(katakana, phonetics);
+                for (int i = 0; i < 1; i++)
+                {
+                    randomMixedGenerator(characters, romanji);
+                }
+                questionLbl.Text = question;
+
             }
-            questionLbl.Text = question;
+            else
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    randomCharacterGenerator(characters, romanji);
+                }
+                questionLbl.Text = question;
+            }
         }
 
         public void recordAnswer(int answer)
         {
             answers.Add(answer);
-            Console.WriteLine("Answer is: " + answer); //more debugging stuff
+            //Console.WriteLine("Answer is: " + answer); //more debugging stuff
 
             for(int i = 0; i < answers.Count; i++) //even more debugging stuff, but i think its done for now
             {
@@ -111,11 +166,11 @@ namespace Japanese_Symbols
 
                 if (averageScore > 12)
                 {
-                    Console.WriteLine("Answers before being wiped" + answers.ToString());
+                    //Console.WriteLine("Answers before being wiped" + answers.ToString());
                     difficulty++;
                     answers.Clear();
-                    Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
-                    Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
+                    //Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
+                    //Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
                 }
                 else
                 {
