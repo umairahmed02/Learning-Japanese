@@ -14,6 +14,7 @@ namespace Japanese_Symbols
     {
         int retry;
         int difficulty = 0;
+        int baseDifficulty;
         int position;
         bool mixed = false;
 
@@ -43,7 +44,11 @@ namespace Japanese_Symbols
         {
             InitializeComponent();
             reset();
-            difficulty = dif;
+
+            //done this way because baseDifficulty will always stay constant and difficulty will be written over
+            //this way the base difficulty can always be reset to and not just being reset to 0 all the time
+            baseDifficulty = dif;
+            difficulty = baseDifficulty;
 
             //lang will only ever be 1 or 0 if user has chosen katakana or hiragana
             //this means i can just set language to lang and its easy peasy
@@ -224,7 +229,7 @@ namespace Japanese_Symbols
 
         private void resetDiffButton_Click(object sender, EventArgs e)
         {
-            difficulty = 0;
+            difficulty = baseDifficulty;
             answers.Clear();
             reset();
         }
