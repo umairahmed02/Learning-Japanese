@@ -44,7 +44,7 @@ namespace Japanese_Symbols
 
         private void startup(int language)
         {
-            Form1 form = new Form1(language);
+            Form1 form = new Form1(language, difficultyTrackBar.Value);
             form.ShowDialog();
             this.Hide();
             this.Close();
