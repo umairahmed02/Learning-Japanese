@@ -182,7 +182,7 @@ namespace Japanese_Symbols
                 {
                     //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
                     answers.RemoveRange(0, 4);
-                    Console.WriteLine(answers); //checking they are being deleted properly
+                    //Console.WriteLine(answers); //checking they are being deleted properly
                 }
             }
         }

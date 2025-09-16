@@ -89,7 +89,7 @@
             // difficultyTrackBar
             // 
             this.difficultyTrackBar.Location = new System.Drawing.Point(184, 357);
-            this.difficultyTrackBar.Maximum = 9;
+            this.difficultyTrackBar.Maximum = 16;
             this.difficultyTrackBar.Name = "difficultyTrackBar";
             this.difficultyTrackBar.Size = new System.Drawing.Size(438, 56);
             this.difficultyTrackBar.TabIndex = 5;
