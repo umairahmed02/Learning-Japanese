@@ -12,6 +12,7 @@ namespace Japanese_Symbols
 {
     public partial class Form1 : Form
     {
+        int length = 1;
         int retry;
         int difficulty = 0;
         int baseDifficulty;
@@ -68,19 +69,22 @@ namespace Japanese_Symbols
             //this if else block basically makes it so that first you get a whole new set to learn
             //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
             //almost certain the math here is wrong, jesus take the wheel (it was)
-            if (difficulty > 28)
+            for (int i = 0; i < length; i++)
             {
-                position = rand.Next(0, 70);
-            }
-            else
-            {
-                if (difficulty % 2 == 0)
+                if (difficulty > 28)
                 {
-                    position = rand.Next(6 + (difficulty / 2) * 5);
+                    position = rand.Next(0, 70);
                 }
                 else
                 {
-                    position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
+                    if (difficulty % 2 == 0)
+                    {
+                        position = rand.Next(6 + (difficulty / 2) * 5);
+                    }
+                    else
+                    {
+                        position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
+                    }
                 }
             }
             //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
@@ -190,6 +194,10 @@ namespace Japanese_Symbols
                 {
                     //Console.WriteLine("Answers before being wiped" + answers.ToString());
                     difficulty++;
+                    if (difficulty >= 30)
+                    {
+                        length++;
+                    }
                     answers.Clear();
                     //Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
                     //Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
