@@ -132,9 +132,17 @@ namespace Japanese_Symbols
             resetLbl.Visible = false;
             warnLbl.Visible = false;
             correctLbl.Visible = false;
-            difficultyLbl.Text = "Difficulty: " + difficulty;
             answer = "";
             question = "";
+
+            if (difficulty > 28)
+            {
+                difficultyLbl.Text = "Difficulty: MAX";
+            }
+            else
+            {
+                difficultyLbl.Text = "Difficulty: " + difficulty;
+            }
 
             if (mixed)
             {
