@@ -77,7 +77,7 @@ namespace Japanese_Symbols
                 position = rand.Next(6 + ((difficulty -1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
             }
             //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
-
+            Console.WriteLine(position.ToString());
             question += characterList[language, position];
             answer += romanji[position];
         }
