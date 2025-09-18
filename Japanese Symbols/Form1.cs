@@ -71,7 +71,7 @@ namespace Japanese_Symbols
             //almost certain the math here is wrong, jesus take the wheel (it was)
             for (int i = 0; i < length; i++)
             {
-                if (difficulty > 28)
+                if (difficulty > 26)
                 {
                     position = rand.Next(0, 70);
                 }
@@ -83,7 +83,7 @@ namespace Japanese_Symbols
                     }
                     else
                     {
-                        position = rand.Next(5 + ((difficulty - 1) / 2) * 5,  + ((difficulty + 1) / 2) * 5);
+                        position = rand.Next(5 + ((difficulty - 1) / 2) * 5, 5 + ((difficulty + 1) / 2) * 5);
                     }
                 }
             }
