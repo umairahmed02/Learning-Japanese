@@ -139,7 +139,7 @@ namespace Japanese_Symbols
             answer = "";
             question = "";
 
-            if (difficulty > 28)
+            if (difficulty > 26)
             {
                 difficultyLbl.Text = "Difficulty: MAX";
             }
