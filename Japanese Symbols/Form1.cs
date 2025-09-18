@@ -100,11 +100,11 @@ namespace Japanese_Symbols
             //almost certain the math here is wrong, jesus take the wheel (it was)
             if (difficulty % 2 == 0)
             {
-                position = rand.Next(6 + (difficulty / 2) * 5);
+                position = rand.Next(5 + (difficulty / 2) * 5);
             }
             else
             {
-                position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
+                position = rand.Next(5 + ((difficulty - 1) / 2) * 5, 5 + ((difficulty + 1) / 2) * 5);
             }
             //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
 
@@ -194,7 +194,7 @@ namespace Japanese_Symbols
                 {
                     //Console.WriteLine("Answers before being wiped" + answers.ToString());
                     difficulty++;
-                    if (difficulty >= 30)
+                    if (difficulty > 26)
                     {
                         length++;
                     }
