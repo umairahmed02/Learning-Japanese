@@ -31,15 +31,15 @@
         {
             //Arrange
             Random random = new Random();
-            int difficulty = 13;
-            int lowerLimit = 36;
-            int higherLimit = 41;
+            int difficulty = 28;
+            int lowerLimit = 0;
+            int higherLimit = 70;
             List<int> results = new List<int>();
 
             //Act
             for (int i = 0; i < difficulty; i++)
             {
-                results.Add(random.Next(5 + ((difficulty - 1) / 2) * 5, 5 + ((difficulty + 1) / 2) * 5));
+                results.Add(random.Next(5 + (difficulty / 2) * 5));
             }
 
             //Assert
