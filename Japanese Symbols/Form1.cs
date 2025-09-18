@@ -83,7 +83,7 @@ namespace Japanese_Symbols
                     }
                     else
                     {
-                        position = rand.Next(5 + ((difficulty - 1) / 2) * 5, 5 + ((difficulty + 1) / 2) * 5);
+                        position = rand.Next(5 + ((difficulty - 1) / 2) * 5,  + ((difficulty + 1) / 2) * 5);
                     }
                 }
             }
