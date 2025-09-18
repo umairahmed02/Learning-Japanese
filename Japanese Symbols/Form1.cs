@@ -79,11 +79,11 @@ namespace Japanese_Symbols
                 {
                     if (difficulty % 2 == 0)
                     {
-                        position = rand.Next(6 + (difficulty / 2) * 5);
+                        position = rand.Next(5 + (difficulty / 2) * 5);
                     }
                     else
                     {
-                        position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
+                        position = rand.Next(5 + ((difficulty - 1) / 2) * 5, 5 + ((difficulty + 1) / 2) * 5);
                     }
                 }
             }

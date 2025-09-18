@@ -51,6 +51,7 @@ namespace Japanese_Symbols
             this.questionLbl.Size = new System.Drawing.Size(95, 36);
             this.questionLbl.TabIndex = 0;
             this.questionLbl.Text = "label1";
+            this.questionLbl.Click += new System.EventHandler(this.questionLbl_Click);
             // 
             // answerTxtBox
             // 
