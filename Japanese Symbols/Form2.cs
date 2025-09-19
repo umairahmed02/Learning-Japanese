@@ -18,8 +18,10 @@ namespace Japanese_Symbols
         {
             InitializeComponent();
             difficultyLabel.Text = "Difficulty: 0";
+            
         }
 
+        //on-click events
         private void hiraganaButton_Click(object sender, EventArgs e)
         {
             language = 0;
@@ -37,6 +39,38 @@ namespace Japanese_Symbols
             startup(language);
         }
 
+        //on-hover events
+        private void hiraganaButton_Hover(object sender, EventArgs e)
+        {
+            hiraganaButton.BackColor = Color.PaleGoldenrod;
+        }
+
+        private void katakanaButton_Hover(object sender, EventArgs e)
+        {
+            katakanaButton.BackColor = Color.PaleGoldenrod;
+        }
+
+        private void mixedButton_Hover(object sender, EventArgs e)
+        {
+            mixedButton.BackColor = Color.PaleGoldenrod;
+        }
+
+        private void hiraganaButton_Leave(object sender, EventArgs e)
+        {
+            hiraganaButton.BackColor = Color.PaleGoldenrod;
+        }
+
+        private void katakanaButton_Leave(object sender, EventArgs e)
+        {
+            katakanaButton.BackColor = Color.;
+        }
+
+        private void mixedButton_Leave(object sender, EventArgs e)
+        {
+            mixedButton.BackColor = Color.PaleGoldenrod;
+        }
+
+        //misc events
         private void difficultyTrackBar_Scroll(object sender, EventArgs e)
         {
             difficultyLabel.Text = "Difficulty: " + difficultyTrackBar.Value.ToString();
