@@ -57,17 +57,17 @@ namespace Japanese_Symbols
 
         private void hiraganaButton_Leave(object sender, EventArgs e)
         {
-            hiraganaButton.BackColor = Color.PaleGoldenrod;
+            hiraganaButton.BackColor = SystemColors.ControlLight;
         }
 
         private void katakanaButton_Leave(object sender, EventArgs e)
         {
-            katakanaButton.BackColor = Color.;
+            katakanaButton.BackColor = SystemColors.ControlLight;
         }
 
         private void mixedButton_Leave(object sender, EventArgs e)
         {
-            mixedButton.BackColor = Color.PaleGoldenrod;
+            mixedButton.BackColor = SystemColors.ControlLight;
         }
 
         //misc events

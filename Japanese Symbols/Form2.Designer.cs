@@ -58,23 +58,25 @@
             // 
             // hiraganaButton
             // 
+            this.hiraganaButton.BackColor = System.Drawing.SystemColors.ControlLight;
             this.hiraganaButton.Location = new System.Drawing.Point(151, 259);
             this.hiraganaButton.Name = "hiraganaButton";
             this.hiraganaButton.Size = new System.Drawing.Size(140, 23);
             this.hiraganaButton.TabIndex = 2;
             this.hiraganaButton.Text = "Hiragana";
-            this.hiraganaButton.UseVisualStyleBackColor = true;
+            this.hiraganaButton.UseVisualStyleBackColor = false;
             this.hiraganaButton.Click += new System.EventHandler(this.hiraganaButton_Click);
             this.hiraganaButton.MouseHover += new System.EventHandler(this.hiraganaButton_Hover);
             // 
             // katakanaButton
             // 
-            this.katakanaButton.Location = new System.Drawing.Point(324, 259);
+            this.katakanaButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.katakanaButton.Location = new System.Drawing.Point(328, 259);
             this.katakanaButton.Name = "katakanaButton";
             this.katakanaButton.Size = new System.Drawing.Size(140, 23);
             this.katakanaButton.TabIndex = 3;
             this.katakanaButton.Text = "Katakana";
-            this.katakanaButton.UseVisualStyleBackColor = true;
+            this.katakanaButton.UseVisualStyleBackColor = false;
             this.katakanaButton.Click += new System.EventHandler(this.katakanaButton_Click);
             this.katakanaButton.MouseHover += new System.EventHandler(this.katakanaButton_Hover);
             // 
