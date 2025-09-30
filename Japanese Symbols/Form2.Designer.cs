@@ -67,6 +67,7 @@
             this.hiraganaButton.UseVisualStyleBackColor = false;
             this.hiraganaButton.Click += new System.EventHandler(this.hiraganaButton_Click);
             this.hiraganaButton.MouseHover += new System.EventHandler(this.hiraganaButton_Hover);
+            this.hiraganaButton.MouseLeave += new System.EventHandler(this.hiraganaButton_Leave);
             // 
             // katakanaButton
             // 
@@ -79,6 +80,7 @@
             this.katakanaButton.UseVisualStyleBackColor = false;
             this.katakanaButton.Click += new System.EventHandler(this.katakanaButton_Click);
             this.katakanaButton.MouseHover += new System.EventHandler(this.katakanaButton_Hover);
+            this.katakanaButton.MouseLeave += new System.EventHandler(this.katakanaButton_Leave);
             // 
             // mixedButton
             // 
@@ -91,6 +93,7 @@
             this.mixedButton.UseVisualStyleBackColor = false;
             this.mixedButton.Click += new System.EventHandler(this.mixedButton_Click);
             this.mixedButton.MouseHover += new System.EventHandler(this.mixedButton_Hover);
+            this.mixedButton.MouseLeave += new System.EventHandler(this.mixedButton_Leave);
             // 
             // difficultyTrackBar
             // 
