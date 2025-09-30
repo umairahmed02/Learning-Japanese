@@ -39,40 +39,40 @@ namespace Japanese_Symbols
             startup(language);
         }
 
-        /*
+        
         //on-hover events
         private void hiraganaButton_Hover(object sender, EventArgs e)
         {
-            hiraganaButton.BackColor = Color.PaleGoldenrod;
+            
         }
 
         private void katakanaButton_Hover(object sender, EventArgs e)
         {
-            katakanaButton.BackColor = Color.PaleGoldenrod;
+            
         }
 
         private void mixedButton_Hover(object sender, EventArgs e)
         {
-            mixedButton.BackColor = Color.PaleGoldenrod;
+            
         }
 
         //on-leave events
 
         private void hiraganaButton_Leave(object sender, EventArgs e)
         {
-            hiraganaButton.BackColor = SystemColors.ControlLight;
+            
         }
 
         private void katakanaButton_Leave(object sender, EventArgs e)
         {
-            katakanaButton.BackColor = SystemColors.ControlLight;
+            
         }
 
         private void mixedButton_Leave(object sender, EventArgs e)
         {
-            mixedButton.BackColor = SystemColors.ControlLight;
+            
         }
-        */
+        
 
         //misc events
         private void difficultyTrackBar_Scroll(object sender, EventArgs e)
