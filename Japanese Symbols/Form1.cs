@@ -257,5 +257,17 @@ namespace Japanese_Symbols
             answers.Clear();
             reset();
         }
+
+        private void answerTxtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && contButton.Visible)
+            {
+                reset();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                answerButton_Click(sender, e);
+            }
+        }
     }
 }

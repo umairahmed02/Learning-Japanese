@@ -48,7 +48,7 @@ namespace Japanese_Symbols
             this.questionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionLbl.Location = new System.Drawing.Point(439, 162);
             this.questionLbl.Name = "questionLbl";
-            this.questionLbl.Size = new System.Drawing.Size(95, 36);
+            this.questionLbl.Size = new System.Drawing.Size(79, 29);
             this.questionLbl.TabIndex = 0;
             this.questionLbl.Text = "label1";
             // 
@@ -56,8 +56,9 @@ namespace Japanese_Symbols
             // 
             this.answerTxtBox.Location = new System.Drawing.Point(337, 227);
             this.answerTxtBox.Name = "answerTxtBox";
-            this.answerTxtBox.Size = new System.Drawing.Size(236, 22);
+            this.answerTxtBox.Size = new System.Drawing.Size(236, 20);
             this.answerTxtBox.TabIndex = 1;
+            this.answerTxtBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.answerTxtBox_KeyDown);
             // 
             // answerButton
             // 
@@ -85,7 +86,7 @@ namespace Japanese_Symbols
             this.correctLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.correctLbl.Location = new System.Drawing.Point(283, 331);
             this.correctLbl.Name = "correctLbl";
-            this.correctLbl.Size = new System.Drawing.Size(433, 16);
+            this.correctLbl.Size = new System.Drawing.Size(354, 13);
             this.correctLbl.TabIndex = 4;
             this.correctLbl.Text = "Correct, well done! Please click the \'Continue\' button for the next question";
             // 
@@ -105,7 +106,7 @@ namespace Japanese_Symbols
             this.warnLbl.ForeColor = System.Drawing.Color.Red;
             this.warnLbl.Location = new System.Drawing.Point(283, 331);
             this.warnLbl.Name = "warnLbl";
-            this.warnLbl.Size = new System.Drawing.Size(467, 16);
+            this.warnLbl.Size = new System.Drawing.Size(380, 13);
             this.warnLbl.TabIndex = 6;
             this.warnLbl.Text = "Uh oh! That was wrong. You have one more try before the question is changed";
             // 
@@ -114,7 +115,7 @@ namespace Japanese_Symbols
             this.resetLbl.AutoSize = true;
             this.resetLbl.Location = new System.Drawing.Point(210, 331);
             this.resetLbl.Name = "resetLbl";
-            this.resetLbl.Size = new System.Drawing.Size(670, 16);
+            this.resetLbl.Size = new System.Drawing.Size(545, 13);
             this.resetLbl.TabIndex = 7;
             this.resetLbl.Text = "Doh! It looks like you got the answer wrong again. Please click the \'Continue\' bu" +
     "tton when you are done reviewing";
@@ -124,7 +125,7 @@ namespace Japanese_Symbols
             this.answerLbl.AutoSize = true;
             this.answerLbl.Location = new System.Drawing.Point(408, 208);
             this.answerLbl.Name = "answerLbl";
-            this.answerLbl.Size = new System.Drawing.Size(44, 16);
+            this.answerLbl.Size = new System.Drawing.Size(35, 13);
             this.answerLbl.TabIndex = 8;
             this.answerLbl.Text = "label1";
             // 
@@ -133,7 +134,7 @@ namespace Japanese_Symbols
             this.difficultyLbl.AutoSize = true;
             this.difficultyLbl.Location = new System.Drawing.Point(624, 227);
             this.difficultyLbl.Name = "difficultyLbl";
-            this.difficultyLbl.Size = new System.Drawing.Size(44, 16);
+            this.difficultyLbl.Size = new System.Drawing.Size(35, 13);
             this.difficultyLbl.TabIndex = 9;
             this.difficultyLbl.Text = "label1";
             // 
