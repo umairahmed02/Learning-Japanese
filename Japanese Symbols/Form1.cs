@@ -16,7 +16,7 @@ namespace Japanese_Symbols
         int retry;
         int difficulty = 0;
         int baseDifficulty;
-        int position;
+        int position = 0;
         bool mixed = false;
         
 
@@ -28,7 +28,7 @@ namespace Japanese_Symbols
         //made public for this class as more than one function needs these variables visible
         String answer = "";
         String question = "";
-        String prev_answer = "";
+        List<int> prev_answer = new List<int> { }; 
         int language;
 
         //although a dictonary would be best in this use-case i will be adding hiragana later and as there is no way to have a dictionary with 2 keys to a value it would make it take more space
@@ -52,8 +52,6 @@ namespace Japanese_Symbols
             baseDifficulty = dif;
             difficulty = baseDifficulty;
 
-            reset();
-
             //lang will only ever be 1 or 0 if user has chosen katakana or hiragana
             //this means i can just set language to lang and its easy peasy
             //however i have added a new mixed option which is passed as lang = 2 where i'll need to change how it chooses between the two arrays in the 2d array
@@ -64,40 +62,52 @@ namespace Japanese_Symbols
             else
             {
                 mixed = true;
+                language = 0;
             }
+            //setting prev_answer to make sure the loop in randomCharacterGenerator works
+            prev_answer.AddRange(new List<int> {lang, 0});
+            reset();
         }
         public void randomCharacterGenerator(String[,] characterList, String[]romanji)
         {
-            //this if else block basically makes it so that first you get a whole new set to learn
-            //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
-            //almost certain the math here is wrong, jesus take the wheel (it was)
-            for (int i = 0; i < length; i++)
+            Console.WriteLine("previous answer is: " + prev_answer[0] + prev_answer[1]);
+            while(language == prev_answer[0] && position == prev_answer[1])
             {
-                if (difficulty > 26)
+                //this if else block basically makes it so that first you get a whole new set to learn
+                //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
+                //almost certain the math here is wrong, jesus take the wheel (it was)
+                for (int i = 0; i < length; i++)
                 {
-                    position = rand.Next(0, 70);
-                }
-                else
-                {
-                    if (difficulty % 2 == 0)
+                    if (difficulty > 26)
                     {
-                        position = rand.Next(6 + (difficulty / 2) * 5);
+                        position = rand.Next(0, 70);
                     }
                     else
                     {
-                        position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
+                        if (difficulty % 2 == 0)
+                        {
+                            position = rand.Next(6 + (difficulty / 2) * 5);
+                        }
+                        else
+                        {
+                            position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
+                        }
                     }
                 }
+                //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
+                Console.WriteLine(position.ToString());
+                //below if statement is just to randomise the language everytime if the mode is set to mixed character sets
+                if (mixed)
+                {
+                    language = rand.Next(2);
+                }
             }
-            //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
-            Console.WriteLine(position.ToString());
-            //below if statement is just to randomise the language everytime if the mode is set to mixed character sets
-            if (mixed)
-            {
-                language = rand.Next(2);
-            }
+           
             question = characterList[language, position];
             answer = romanji[position];
+            //setting previous answer so I can make a while loop to make sure new questions are being asked rather than continuously showing the same item over and over
+            prev_answer.Clear();
+            prev_answer.AddRange(new List<int> {language,  position});
             
         }
 
