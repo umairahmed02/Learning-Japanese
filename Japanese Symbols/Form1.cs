@@ -91,11 +91,15 @@ namespace Japanese_Symbols
             }
             //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
             Console.WriteLine(position.ToString());
+            if (mixed)
+            {
+                language = rand.Next(2);
+            }
             question += characterList[language, position];
             answer += romanji[position];
         }
 
-        public void randomMixedGenerator(String[,] characterList, String[] romanji)
+        /*public void randomMixedGenerator(String[,] characterList, String[] romanji)
         {
             //this if else block basically makes it so that first you get a whole new set to learn
             //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
@@ -115,7 +119,7 @@ namespace Japanese_Symbols
             Console.WriteLine("Language is: " + language);
             question += characterList[language, position];
             answer += romanji[position];
-        }
+        }*/
 
         public void showContinue()
         {
@@ -154,7 +158,7 @@ namespace Japanese_Symbols
             {
                 for (int i = 0; i < 1; i++)
                 {
-                    randomMixedGenerator(characters, romanji);
+                    randomCharacterGenerator(characters, romanji);
                 }
                 questionLbl.Text = question;
 
