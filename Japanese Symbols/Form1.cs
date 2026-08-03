@@ -151,11 +151,6 @@ namespace Japanese_Symbols
         {
             answers.Add(answer);
 
-            for(int i = 0; i < answers.Count; i++) //even more debugging stuff, but i think its done for now
-            {
-                Console.WriteLine(answers[i]);
-            }
-
             if (answers.Count > 20)
             {
                 answers.RemoveAt(0);
@@ -169,7 +164,7 @@ namespace Japanese_Symbols
                     averageScore += answers[i];
                 }
 
-                if (averageScore > 18)
+                if (averageScore > 18) //basically requires 90% success rate to get to the next difficulty after doing 20 questions
                 {
                     difficulty++;
                     if (difficulty > 26)
@@ -235,10 +230,12 @@ namespace Japanese_Symbols
 
         private void answerTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
+            //if the enter key is pressed while there are no cotninues left it will act as if clicking contButton rather than answerButton
             if (e.KeyCode == Keys.Enter && contButton.Visible)
             {
                 reset();
             }
+            //if the enter key is pressed otherwise it will just act as if pressing answerButton
             else if (e.KeyCode == Keys.Enter)
             {
                 answerButton_Click(sender, e);
