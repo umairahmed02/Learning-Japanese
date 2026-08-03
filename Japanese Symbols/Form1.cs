@@ -18,6 +18,7 @@ namespace Japanese_Symbols
         int baseDifficulty;
         int position;
         bool mixed = false;
+        
 
         //list that will record the last 16 answers as 1 or 0; 1 being correct and 0 being incorrect. This will be used to interpret how well the student is doing and whether they can go up in difficulty or not.
         //chose to make it a list for ease of removing the first item as this is the most common manipulation that will happen to it
@@ -27,6 +28,7 @@ namespace Japanese_Symbols
         //made public for this class as more than one function needs these variables visible
         String answer = "";
         String question = "";
+        String prev_answer = "";
         int language;
 
         //although a dictonary would be best in this use-case i will be adding hiragana later and as there is no way to have a dictionary with 2 keys to a value it would make it take more space
@@ -83,7 +85,7 @@ namespace Japanese_Symbols
                     }
                     else
                     {
-                        position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 5 + ((difficulty + 1) / 2) * 5);
+                        position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
                     }
                 }
             }
