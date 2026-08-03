@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -149,22 +150,31 @@ namespace Japanese_Symbols
 
         public void recordAnswer(int answer)
         {
+            int requirement;
             answers.Add(answer);
+            if (difficulty % 2 == 0)
+            {
+                requirement = 10 + difficulty * 5;
+            }
+            else
+            {
+                requirement = 20;
+            }
 
-            if (answers.Count > 20)
+            if (answers.Count > requirement)
             {
                 answers.RemoveAt(0);
             }
 
-            if (answers.Count == 20)
+            if (answers.Count == requirement)
             {
                 int averageScore = 0;
                 for (int i = 0; i < answers.Count; i++)
                 {
                     averageScore += answers[i];
                 }
-
-                if (averageScore > 18) //basically requires 90% success rate to get to the next difficulty after doing 20 questions
+                //requires 90% success rate to get to the next difficulty after doing 20 questions or a scaled amount of questions in review difficulties
+                if (averageScore > (requirement * 9) / 10 ) 
                 {
                     difficulty++;
                     if (difficulty > 26)
@@ -176,7 +186,7 @@ namespace Japanese_Symbols
                 else
                 {
                     //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
-                    answers.RemoveRange(0, 10);
+                    answers.RemoveRange(0, requirement / 2);
                 }
             }
         }
