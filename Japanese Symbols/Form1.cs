@@ -70,7 +70,6 @@ namespace Japanese_Symbols
         }
         public void randomCharacterGenerator(String[,] characterList, String[]romanji)
         {
-            Console.WriteLine("previous answer is: " + prev_answer[0] + prev_answer[1]);
             while(language == prev_answer[0] && position == prev_answer[1])
             {
                 //this if else block basically makes it so that first you get a whole new set to learn
@@ -94,7 +93,6 @@ namespace Japanese_Symbols
                         }
                     }
                 }
-                //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
                 Console.WriteLine(position.ToString());
                 //below if statement is just to randomise the language everytime if the mode is set to mixed character sets
                 if (mixed)
@@ -132,8 +130,6 @@ namespace Japanese_Symbols
             resetLbl.Visible = false;
             warnLbl.Visible = false;
             correctLbl.Visible = false;
-            //answer = "";
-            //question = "";
 
             if (difficulty > 26)
             {
@@ -154,7 +150,6 @@ namespace Japanese_Symbols
         public void recordAnswer(int answer)
         {
             answers.Add(answer);
-            //Console.WriteLine("Answer is: " + answer); //more debugging stuff
 
             for(int i = 0; i < answers.Count; i++) //even more debugging stuff, but i think its done for now
             {
@@ -176,21 +171,17 @@ namespace Japanese_Symbols
 
                 if (averageScore > 18)
                 {
-                    //Console.WriteLine("Answers before being wiped" + answers.ToString());
                     difficulty++;
                     if (difficulty > 26)
                     {
                         length++;
                     }
                     answers.Clear();
-                    //Console.WriteLine("Difficulty upped"); //debugging to test if difficulty is increasing
-                    //Console.WriteLine("Answers after being wiped: " + answers.ToString()); //checking that it's only increasing on the correct notations
                 }
                 else
                 {
                     //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
                     answers.RemoveRange(0, 10);
-                    //Console.WriteLine(answers); //checking they are being deleted properly
                 }
             }
         }
