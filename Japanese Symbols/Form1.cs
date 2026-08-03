@@ -99,28 +99,6 @@ namespace Japanese_Symbols
             answer += romanji[position];
         }
 
-        /*public void randomMixedGenerator(String[,] characterList, String[] romanji)
-        {
-            //this if else block basically makes it so that first you get a whole new set to learn
-            //once the new set is competently learned you are then tested on all the sets you have passed together to make sure user retains the previous knowledge
-            //almost certain the math here is wrong, jesus take the wheel (it was)
-            if (difficulty % 2 == 0)
-            {
-                position = rand.Next(6 + (difficulty / 2) * 5);
-            }
-            else
-            {
-                position = rand.Next(6 + ((difficulty - 1) / 2) * 5, 6 + ((difficulty + 1) / 2) * 5);
-            }
-            //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
-
-            //randomizing which array it takes from every time... i hope
-            language = rand.Next(2);
-            Console.WriteLine("Language is: " + language);
-            question += characterList[language, position];
-            answer += romanji[position];
-        }*/
-
         public void showContinue()
         {
             answerButton.Enabled = false;
@@ -154,23 +132,11 @@ namespace Japanese_Symbols
                 difficultyLbl.Text = "Difficulty: " + difficulty;
             }
 
-            if (mixed)
+            for (int i = 0; i < 1; i++)
             {
-                for (int i = 0; i < 1; i++)
-                {
-                    randomCharacterGenerator(characters, romanji);
-                }
-                questionLbl.Text = question;
-
+                randomCharacterGenerator(characters, romanji);
             }
-            else
-            {
-                for (int i = 0; i < 1; i++)
-                {
-                    randomCharacterGenerator(characters, romanji);
-                }
-                questionLbl.Text = question;
-            }
+            questionLbl.Text = question;
         }
 
         public void recordAnswer(int answer)
