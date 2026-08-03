@@ -91,12 +91,14 @@ namespace Japanese_Symbols
             }
             //Console.WriteLine("Character generated from position: " + position); //debugging to make sure my calc is right for when it should take from where
             Console.WriteLine(position.ToString());
+            //below if statement is just to randomise the language everytime if the mode is set to mixed character sets
             if (mixed)
             {
                 language = rand.Next(2);
             }
-            question += characterList[language, position];
-            answer += romanji[position];
+            question = characterList[language, position];
+            answer = romanji[position];
+            
         }
 
         public void showContinue()
@@ -120,8 +122,8 @@ namespace Japanese_Symbols
             resetLbl.Visible = false;
             warnLbl.Visible = false;
             correctLbl.Visible = false;
-            answer = "";
-            question = "";
+            //answer = "";
+            //question = "";
 
             if (difficulty > 26)
             {
@@ -177,7 +179,7 @@ namespace Japanese_Symbols
                 else
                 {
                     //doing this so it acts as a buffer before rechecking if they reach proper proficiency.
-                    answers.RemoveRange(0, 4);
+                    answers.RemoveRange(0, 10);
                     //Console.WriteLine(answers); //checking they are being deleted properly
                 }
             }
