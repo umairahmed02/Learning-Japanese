@@ -177,12 +177,12 @@ namespace Japanese_Symbols
                 Console.WriteLine(answers[i]);
             }
 
-            if (answers.Count > 16)
+            if (answers.Count > 20)
             {
                 answers.RemoveAt(0);
             }
 
-            if (answers.Count == 16)
+            if (answers.Count == 20)
             {
                 int averageScore = 0;
                 for (int i = 0; i < answers.Count; i++)
@@ -190,7 +190,7 @@ namespace Japanese_Symbols
                     averageScore += answers[i];
                 }
 
-                if (averageScore > 12)
+                if (averageScore > 18)
                 {
                     //Console.WriteLine("Answers before being wiped" + answers.ToString());
                     difficulty++;
