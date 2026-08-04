@@ -244,11 +244,13 @@ namespace Japanese_Symbols
             if (e.KeyCode == Keys.Enter && contButton.Visible)
             {
                 reset();
+                e.SuppressKeyPress = true;
             }
             //if the enter key is pressed otherwise it will just act as if pressing answerButton
             else if (e.KeyCode == Keys.Enter)
             {
                 answerButton_Click(sender, e);
+                e.SuppressKeyPress = true;
             }
         }
     }
