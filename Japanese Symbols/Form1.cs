@@ -154,7 +154,7 @@ namespace Japanese_Symbols
             answers.Add(answer);
             if (difficulty % 2 == 0)
             {
-                requirement = 10 + difficulty * 5;
+                requirement = 20 + difficulty * (5 / 2);
             }
             else
             {
